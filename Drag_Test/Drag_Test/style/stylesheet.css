@@ -1,0 +1,21 @@
+﻿@font-face {
+    font-family: PoiretOne;
+    font-style: normal;
+    font-weight: normal;
+    src: url(fonts/PoiretOne-Regular.ttf)
+}
+@font-face {
+    font-family: PoiretOne;
+    src: url(fonts/PoiretOne-Regular.ttf);
+}
+.note {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    background-color: #FF3E00;
+    border-radius:10px;
+}
+    .note h3 {
+        font-family: 'PoiretOne', cursive;
+        color: black;
+    }
