@@ -1,21 +1,21 @@
-﻿@font-face {
-    font-family: PoiretOne;
-    font-style: normal;
-    font-weight: normal;
-    src: url(fonts/PoiretOne-Regular.ttf)
+﻿.note {
+    width: 250px;
+    height: 250px;
+    text-align: center;
+    background-color: #FF3E00;
+    border-radius: 10px;
+    font-family: 'PoiretOne';
+    color: black;
+    padding:15px;
 }
 @font-face {
     font-family: PoiretOne;
-    src: url(fonts/PoiretOne-Regular.ttf);
+    font-style: normal;
+    font-weight: normal;
+    src: url(../fonts/PoiretOne-Regular.ttf)
 }
-.note {
-    width: 100px;
-    height: 100px;
-    text-align: center;
-    background-color: #FF3E00;
-    border-radius:10px;
+
+@font-face {
+    font-family: PoiretOne;
+    src: url(../fonts/PoiretOne-Regular.ttf);
 }
-    .note h3 {
-        font-family: 'PoiretOne', cursive;
-        color: black;
-    }
