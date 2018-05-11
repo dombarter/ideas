@@ -4,14 +4,14 @@
     <meta charset="utf-8" />
     <title>Drag Test</title>
     <link rel="stylesheet" href="style/stylesheet.css" />
+    <script src="scripts/note.js"></script>
 </head>
 <body>
 
     <div id="noteHolder">
 
-
-        <div class="note" draggable="true">
-            <h3>Hello World</h3>
+        <div class="note" id="note-1" onmousedown="noteSelected(1)" onmousemove="moveNote(1)" onmouseup="noteDeselected(1)">
+            
         </div>
 
 

@@ -2,12 +2,36 @@
     width: 250px;
     height: 250px;
     text-align: center;
-    background-color: #FF3E00;
-    border-radius: 10px;
+    background-color: #EAEAEA;
+    border-radius: 5px;
     font-family: 'PoiretOne';
     color: black;
-    padding:15px;
+    padding: 15px;
+    box-shadow: 0px 0px 10px 1px #C2C2C2;
+    position:absolute;
+    display:block;
+    top:10px;
+    left:10px;
 }
+    .note:hover {
+        cursor: grab;
+        cursor: -webkit-grab;
+    }
+    .note:active {
+        cursor: grabbing;
+        cursor:-webkit-grabbing;
+    }
+
+    #noteHolder{
+        height:100%;
+        width:100%; 
+        display:block;
+        position:fixed;
+        overflow:hidden;
+        z-index:0;
+        top:0;
+        left:0;
+    }
 @font-face {
     font-family: PoiretOne;
     font-style: normal;
