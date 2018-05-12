@@ -1,9 +1,4 @@
-﻿dragElement(document.getElementById(("note-1")));
-dragElement(document.getElementById(("note-2")));
-
-var numberOfNotes = 2;
-
-function dragElement(elmnt) {
+﻿function dragElement(elmnt) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 
     var element = elmnt;
@@ -48,5 +43,20 @@ function dragElement(elmnt) {
     }
 }
 
+var numberOfNotes = 0; //total number of notes on the current screen
 
+function addNote() {
+
+    var div = document.createElement("div"); //creating idv
+
+    div.classList.add("note"); //add note class to div
+
+    div.id = "note-" + (numberOfNotes + 1); //adding unique id to div
+
+    document.getElementById("noteHolder").appendChild(div); // adding div to noteHolder div
+
+    numberOfNotes = numberOfNotes + 1; //increasing total number of notes
+
+    dragElement(div); //setting up move handler for the new note
+}
 
