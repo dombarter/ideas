@@ -1,46 +1,52 @@
-﻿var numberOfNotes = 1;
-var notes = [false];
+﻿dragElement(document.getElementById(("note-1")));
+dragElement(document.getElementById(("note-2")));
 
-for (var a = 1; a <= numberOfNotes; a++) {
-    var note = "note-" + a.toString();
-    document.getElementById(note).style.zIndex = a;
-}
+var numberOfNotes = 2;
 
-function getXCoordinate() {
-    return parseFloat(window.event.clientX);  
-}
+function dragElement(elmnt) {
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 
-function getYCoordinate() {
-    return parseFloat(window.event.clientY); 
-}
+    var element = elmnt;
 
-function noteSelected(noteNumber) {
-    notes[noteNumber - 1] = true;
-}
+    elmnt.onmousedown = dragMouseDown;
+    
+    function dragMouseDown(e) {
 
-function noteDeselected(noteNumber) {
-    notes[noteNumber - 1] = false;
-}
+        var allNotes = document.getElementsByClassName("note");
+        for (var a = 0; a < allNotes.length; a++) {
+            allNotes[a].style.zIndex = 1;
+        }
+        element.style.zIndex = 2;
 
-function moveNote(noteNumber) {
+        e = e || window.event;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        document.onmousemove = elementDrag;
+    }
 
-    if (notes[noteNumber - 1] == true) {
+    function elementDrag(e) {
 
-        var note = "note-" + noteNumber;
+        var allNotes = document.getElementsByClassName("note");
+        for (var a = 0; a < allNotes.length; a++) {
+            allNotes[a].style.zIndex = 1;
+        }
+        element.style.zIndex = 2;
 
-        var diffX = parseFloat(getXCoordinate() - document.getElementById(note).offsetLeft);
-        var diffY = parseFloat(getYCoordinate() - document.getElementById(note).offsetTop);
-     
-        var newX = getXCoordinate() - diffX;
-        var newY = getYCoordinate() - diffY;
+        e = e || window.event;
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    }
 
-        alert("X: " + getXCoordinate() + "\n" + "Y: " + getYCoordinate() + "\ndiffX: " + diffX + "\ndiffY: " + diffY + "\nnewX: " + newX + "\nnewY: " + newY);
-
-        //document.getElementById(note).style.top = (getYCoordinate() - diffY) + "px";
-        //document.getElementById(note).style.left = (getXCoordinate() - diffX) + "px";
+    function closeDragElement() {
+        document.onmouseup = null;
+        document.onmousemove = null;
     }
 }
-
 
 
 
