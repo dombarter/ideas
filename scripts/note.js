@@ -47,16 +47,26 @@ var numberOfNotes = 0; //total number of notes on the current screen
 
 function addNote() {
 
-    var div = document.createElement("div"); //creating idv
+    var div = document.createElement("textarea");
 
-    div.classList.add("note"); //add note class to div
+    div.classList.add("note");
 
-    div.id = "note-" + (numberOfNotes + 1); //adding unique id to div
+    div.id = "note-" + (numberOfNotes + 1);
 
-    document.getElementById("noteHolder").appendChild(div); // adding div to noteHolder div
+    document.getElementById("noteHolder").appendChild(div);    
 
     numberOfNotes = numberOfNotes + 1; //increasing total number of notes
 
     dragElement(div); //setting up move handler for the new note
 }
 
+
+function deleteNote() {
+
+    var thisdiv = document.getElementById("note-" + (numberOfNotes + 1));
+
+    document.getElementById("noteHolder").remove(thisdiv);
+
+    numberOfNotes = numberOfNotes - 1;
+
+}
