@@ -63,9 +63,17 @@ function addNote() {
 
 function deleteNote() {
 
-    var thisdiv = document.getElementById("note-" + (numberOfNotes + 1));
+    var thisdiv = document.getElementById("note-"+(numberOfNotes));
 
-    document.getElementById("noteHolder").remove(thisdiv);
+    var list = document.getElementById("noteHolder");
+        
+    console.log(list);
+
+    console.log(thisdiv);
+
+    list.removeChild(list.childNodes[4]);  
+
+    //document.getElementById("noteHolder").removeChild();
 
     numberOfNotes = numberOfNotes - 1;
 
