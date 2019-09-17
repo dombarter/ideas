@@ -43,9 +43,11 @@
     }
 }
 
-var numberOfNotes = 0; //total number of notes on the current screen
+var numberOfNotes = 1; //total number of notes on the current screen
 
 function addNote() {
+
+/*
 
     var div = document.createElement("textarea");
 
@@ -53,11 +55,43 @@ function addNote() {
 
     div.id = "note-" + (numberOfNotes + 1);
 
-    document.getElementById("noteHolder").appendChild(div);    
+    document.getElementById("noteHolder").appendChild(div);
 
     numberOfNotes = numberOfNotes + 1; //increasing total number of notes
 
     dragElement(div); //setting up move handler for the new note
+
+	*/
+
+	console.log(numberOfNotes);
+
+	if(numberOfNotes < 0){
+		numberOfNotes = 0;
+	}
+
+	if(numberOfNotes == 0)
+	{
+		console.log("0 notes - reload window")
+		window.location.reload(false); 
+	}
+
+	var clone = document.getElementById('note-1').cloneNode(true); // "deep" clone
+
+		document.getElementById("noteHolder").appendChild(clone);
+
+		dragElement(clone);
+}
+
+function moveFirst()
+{
+	Clone();
+	
+	var div = "note-1"
+
+	var list = document.getElementById("noteHolder");
+
+	list.removeChild(list.childNodes[3])
+
 }
 
 
@@ -78,3 +112,22 @@ function deleteNote() {
     numberOfNotes = numberOfNotes - 1;
 
 }
+
+function Clone()
+    {
+		
+		
+		var clone = document.getElementById('note-1').cloneNode(true); // "deep" clone
+
+		document.getElementById("noteHolder").appendChild(clone);
+
+		dragElement(clone);
+	}
+	
+	function Delete(button)
+    {
+		var parent = button.parentNode;
+		var grand_father = parent.parentNode;
+		grand_father.removeChild(parent);
+		numberOfNotes -= 1;	
+	}
