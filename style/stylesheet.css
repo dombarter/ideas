@@ -20,6 +20,21 @@
     cursor:-webkit-grabbing;
 }
 
+.delbutton{
+	width: 10px;
+	height: 10px;
+}
+
+#subarea
+{
+	border: 0px solid #ccc;
+	background: #FFEC00;
+	font-family: 'PoiretOne';
+	width: 240px;
+	height: 240px;
+	resize: none;
+}
+
 #noteHolder{
     height:100%;
     width:100%; 
